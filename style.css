@@ -155,11 +155,20 @@ footer.wrap{padding-top:40px;padding-bottom:40px;text-align:center;font-size:14p
 .aside a:hover{text-decoration:underline}
 
 /* Kurzer Lebenslauf */
-details.cv{background:none;padding:0;margin:18px auto 0;max-width:760px}
-details.cv summary{justify-content:center;gap:8px;font-size:15px;color:var(--blue)}
+details.cv{background:none;padding:0;margin:22px auto 0;max-width:760px}
+details.cv summary{justify-content:center;gap:10px;width:max-content;margin:0 auto;padding:10px 20px;border-radius:999px;background:var(--blue-50);color:var(--blue);font-size:15px}
+details.cv summary:hover{background:var(--blue-100)}
 details.cv summary::after{font-size:20px}
-.cv ol{list-style:none;margin:14px 0 0;padding:8px 24px;background:var(--gray-50);border-radius:18px}
-.cv li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid #E3E5EA;font-size:15px;color:var(--text-2)}
-.cv li:last-child{border-bottom:0}
-.cv time{color:var(--text-3);font-size:14px;font-weight:600}
-@media (max-width:520px){.cv ol{padding:4px 18px}.cv li{grid-template-columns:1fr;gap:2px}}
+.cv ol{list-style:none;margin:18px 0 0;padding:28px 30px;background:var(--gray-50);border-radius:22px}
+.cv li{position:relative;padding:0 0 22px 30px}
+.cv li::before{content:"";position:absolute;left:0;top:5px;width:12px;height:12px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px var(--blue-100)}
+.cv li::after{content:"";position:absolute;left:5px;top:24px;bottom:0;width:2px;background:var(--blue-100)}
+.cv li:first-child::before{background:var(--green);box-shadow:0 0 0 4px var(--green-100)}
+.cv li:last-child{padding-bottom:0;margin-top:4px}
+.cv li:last-child::before{background:var(--amber);box-shadow:0 0 0 4px var(--amber-100)}
+.cv li:last-child .when{color:var(--amber-dark)}
+.cv li:last-child::after{display:none}
+.cv .when{display:block;font-size:13px;font-weight:600;color:var(--blue-dark);margin-bottom:2px;letter-spacing:.2px}
+.cv li:first-child .when{color:var(--green-dark)}
+.cv li span:not(.when){display:block;color:var(--text-2);font-size:15px;line-height:1.5}
+@media (max-width:520px){.cv ol{padding:22px 20px}}
