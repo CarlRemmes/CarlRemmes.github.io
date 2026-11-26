@@ -172,3 +172,7 @@ details.cv summary::after{font-size:20px}
 .cv li:first-child .when{color:var(--green-dark)}
 .cv li span:not(.when){display:block;color:var(--text-2);font-size:15px;line-height:1.5}
 @media (max-width:520px){.cv ol{padding:22px 20px}}
+
+/* Porträt im Kopfbereich */
+.art .a1.photo{left:65px;top:0;width:150px;height:150px;overflow:hidden;border:5px solid #fff;background:var(--blue-100)}
+.art .a1.photo img{width:100%;height:100%;object-fit:cover;display:block}
