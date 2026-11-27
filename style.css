@@ -16,12 +16,13 @@ a{color:inherit}
 /* Kopfzeile */
 header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.82);-webkit-backdrop-filter:saturate(180%) blur(16px);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid rgba(0,0,0,.06)}
 .nav{display:flex;align-items:center;gap:24px;height:64px}
-.brand{display:flex;align-items:center;gap:12px;min-height:44px;text-decoration:none;font-weight:700;font-size:21px;letter-spacing:-.4px}
-.dots{position:relative;width:37px;height:30px}
+.brand{display:flex;align-items:center;gap:14px;min-height:44px;text-decoration:none;font-weight:700;font-size:26px;letter-spacing:-.5px;white-space:nowrap}
+@media(max-width:400px){.brand{font-size:23px;gap:11px}.dots{transform:scale(.9);transform-origin:left center}}
+.dots{position:relative;width:46px;height:38px}
 .dots span{position:absolute;border-radius:50%}
-.dots span:nth-child(1){left:0;top:5px;width:20px;height:20px;background:var(--blue)}
-.dots span:nth-child(2){left:12px;top:0;width:15px;height:15px;background:var(--amber)}
-.dots span:nth-child(3){left:20px;top:14px;width:15px;height:15px;background:var(--green)}
+.dots span:nth-child(1){left:0;top:6px;width:25px;height:25px;background:var(--blue)}
+.dots span:nth-child(2){left:15px;top:0;width:19px;height:19px;background:var(--amber)}
+.dots span:nth-child(3){left:25px;top:17px;width:19px;height:19px;background:var(--green)}
 .links{display:flex;gap:22px;margin-left:auto}
 .links a{text-decoration:none;font-size:15px;color:var(--text-2)}
 .links a:hover{color:var(--blue)}
