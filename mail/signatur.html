@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>E-Mail-Signatur</title>
+<style>
+body{margin:0;padding:40px 28px;font-family:-apple-system,system-ui,sans-serif;color:#1d1d1f;background:#fff}
+.box{max-width:620px;margin:0 0 36px}
+h2{font-size:18px;margin:0 0 6px}
+p.n{font-size:14px;color:#515154;margin:0 0 14px;line-height:1.5}
+.sig{padding:18px;border:1px solid #E3E5EA;border-radius:14px;margin-bottom:12px}
+button{font:600 15px -apple-system,system-ui,sans-serif;background:#0071e3;color:#fff;border:0;border-radius:999px;padding:10px 20px;cursor:pointer}
+.ok{margin-left:10px;font-size:14px;color:#1D9E75;opacity:0;transition:opacity .2s}
+</style></head><body>
+<div class="box">
+<h2>Variante 1 · für Apple Mail</h2>
+<p class="n">Vorher in Mail unter Einstellungen → Signaturen den Haken bei „Standardschrift für E-Mails verwenden“ entfernen. Dann hier kopieren und in die leere Signatur einfügen.</p>
+<div class="sig" id="s1"><div style="font-family:Helvetica,Arial,sans-serif;color:#1d1d1f;font-size:13px;line-height:19px;">
+<div><a href="https://carlremmes.com" style="text-decoration:none;"><img src="https://carlremmes.com/mail/logo.png" width="44" height="36" alt="" style="width:44px;height:36px;vertical-align:middle;border:0;"></a>&nbsp;&nbsp;<span style="font-size:16px;font-weight:bold;vertical-align:middle;color:#1d1d1f;">Carl Remmes</span></div>
+<div style="color:#515154;">Workshops und Coaching für Schulklassen</div>
+<div><a href="mailto:business@carlremmes.com" style="color:#0071e3;text-decoration:none;">business@carlremmes.com</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://carlremmes.com" style="color:#0071e3;text-decoration:none;">carlremmes.com</a></div>
+<div style="margin-top:10px;max-width:440px;padding:10px 14px;background-color:#EEF5FD;border-left:4px solid #0071e3;border-radius:8px;"><b>Neu:</b> Mitmach-Workshops zu Technik, Informatik und Vielfalt &amp; Diversität – für einzelne Klassen oder ganze Stufen.<br><a href="https://carlremmes.com" style="color:#0071e3;font-weight:bold;text-decoration:none;">Mehr auf carlremmes.com&nbsp;→</a></div>
+</div></div>
+<button data-t="s1">Für Apple Mail kopieren</button><span class="ok" id="ok-s1">Kopiert</span>
+</div>
+<div class="box">
+<h2>Variante 2 · für Outlook</h2>
+<p class="n">In Outlook unter Einstellungen → Signaturen eine neue Signatur anlegen und einfügen.</p>
+<div class="sig" id="s2"><table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;color:#1d1d1f;border-collapse:collapse;">
+<tr><td style="padding:0 0 8px 0;">
+<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>
+<td valign="middle" style="padding:0 12px 0 0;"><a href="https://carlremmes.com"><img src="https://carlremmes.com/mail/logo.png" width="44" height="36" alt="" style="display:block;border:0;width:44px;height:36px;"></a></td>
+<td valign="middle" style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:20px;font-weight:bold;color:#1d1d1f;">Carl Remmes<br><span style="font-size:13px;line-height:18px;font-weight:normal;color:#515154;">Workshops und Coaching für Schulklassen</span></td>
+</tr></table>
+</td></tr>
+<tr><td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#515154;padding:0 0 12px 0;"><a href="mailto:business@carlremmes.com" style="color:#0071e3;text-decoration:none;">business@carlremmes.com</a>&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://carlremmes.com" style="color:#0071e3;text-decoration:none;">carlremmes.com</a></td></tr>
+<tr><td>
+<table width="470" cellpadding="0" cellspacing="0" border="0" bgcolor="#EEF5FD" style="width:470px;border-collapse:separate;background-color:#EEF5FD;border-radius:12px;"><tr>
+<td width="4" bgcolor="#0071e3" style="width:4px;background-color:#0071e3;border-radius:12px 0 0 12px;font-size:0;line-height:0;">&nbsp;</td>
+<td style="padding:11px 16px;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:19px;color:#1d1d1f;"><b>Neu:</b> Mitmach-Workshops zu Technik, Informatik und Vielfalt &amp; Diversität – für einzelne Klassen oder ganze Stufen.<br><a href="https://carlremmes.com" style="color:#0071e3;font-weight:bold;text-decoration:none;">Mehr auf carlremmes.com&nbsp;→</a></td>
+</tr></table>
+</td></tr>
+</table></div>
+<button data-t="s2">Für Outlook kopieren</button><span class="ok" id="ok-s2">Kopiert</span>
+</div>
+<script>
+document.querySelectorAll('button[data-t]').forEach(function(b){
+  b.addEventListener('click', async function(){
+    var id=b.getAttribute('data-t'), el=document.getElementById(id), html=el.innerHTML, txt=el.innerText;
+    var done=function(){var o=document.getElementById('ok-'+id);o.style.opacity=1;setTimeout(function(){o.style.opacity=0},2000)};
+    try {
+      await navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([txt],{type:'text/plain'})})]);
+      done();
+    } catch(e) {
+      var r=document.createRange(); r.selectNodeContents(el); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      try { document.execCommand('copy'); done(); } catch(e2) {}
+    }
+  });
+});
+</script>
+</body></html>
